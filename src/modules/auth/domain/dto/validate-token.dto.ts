@@ -1,5 +1,5 @@
-import { IsBoolean, IsNotEmpty, IsOptional, IsString } from "class-validator";
-import { MyJwtPayload } from "../../interfaces/jwt-payload.interface";
+import { IsBoolean, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { MyJwtPayload } from '../../interfaces/jwt-payload.interface';
 
 export class ValidateTokenDTO {
   @IsBoolean()

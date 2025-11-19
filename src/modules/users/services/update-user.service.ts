@@ -1,4 +1,10 @@
-import { ConflictException, Inject, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Inject,
+  Injectable,
+  InternalServerErrorException,
+  NotFoundException,
+} from '@nestjs/common';
 import type { IUserRepository } from '../domain/repositories/IUser.repository';
 import { USER_REPOSITORY_TOKEN } from '../utils/tokens';
 import { UpdateUserDTO } from '../domain/dto/update-user.dto';
@@ -29,7 +35,7 @@ export class UpdateUserService {
     await this.isIdExists(id);
 
     const payload: Partial<UpdateUserDTO> = { ...body };
-      
+
     if (payload.password) {
       payload.password = await this.hashPassword(payload.password);
     }

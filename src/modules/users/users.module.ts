@@ -25,6 +25,12 @@ import { DeleteUserService } from './services/delete-user.service';
     { provide: USER_REPOSITORY_TOKEN, useClass: UserRepository },
   ],
   controllers: [UserController],
-  exports: [FindByEmailService, FindByIdService, FindByUsernameService, CreateUserService, UpdateUserService ],
+  exports: [
+    FindByEmailService,
+    FindByIdService,
+    FindByUsernameService,
+    CreateUserService,
+    UpdateUserService,
+  ],
 })
 export class UsersModule {}

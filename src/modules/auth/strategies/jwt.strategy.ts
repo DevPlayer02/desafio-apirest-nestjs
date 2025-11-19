@@ -9,7 +9,7 @@ import { FindByIdService } from 'src/modules/users/services/find-by-id.service';
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(
     private readonly findByIdService: FindByIdService,
-    private readonly config: ConfigService,
+    private readonly config: ConfigService
   ) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -30,7 +30,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     if (!user) {
       throw new UnauthorizedException('User not found or invalid token');
     }
-    
+
     return user;
   }
 }

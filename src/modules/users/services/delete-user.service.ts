@@ -20,7 +20,7 @@ export class DeleteUserService {
   }
 
   async execute(id: number) {
-    await this.isIdExists(id)
+    await this.isIdExists(id);
 
     return await this.userRepository.remove(id);
   }

@@ -1,17 +1,16 @@
-import { User } from "src/modules/users/entities/user.entity";
-import { MyJwtPayload } from "../interfaces/jwt-payload.interface";
-import { JwtService, JwtSignOptions } from "@nestjs/jwt";
+import { User } from 'src/modules/users/entities/user.entity';
+import { MyJwtPayload } from '../interfaces/jwt-payload.interface';
+import { JwtService, JwtSignOptions } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { Injectable } from "@nestjs/common";
-
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class GenerateTokenService {
   constructor(
     private readonly jwtService: JwtService,
-    private readonly config: ConfigService,
-  ) { }
-  
+    private readonly config: ConfigService
+  ) {}
+
   async execute(user: User) {
     const payload: MyJwtPayload = { sub: user.id, name: user.name };
 

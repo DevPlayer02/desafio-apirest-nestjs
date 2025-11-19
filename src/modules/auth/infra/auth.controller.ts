@@ -21,19 +21,19 @@ export class AuthController {
   async login(@Body() body: LoginDTO) {
     return this.authLoginService.execute(body);
   }
-    
+
   @Post('register')
   async register(@Body() body: RegisterDTO) {
     return this.authRegisterService.execute(body);
   }
-  
+
   @Post('forgot-password')
-  async forgot(@Body() body: ForgotDto ) {
+  async forgot(@Body() body: ForgotDto) {
     return this.authForgotService.execute(body.email);
   }
 
   @Patch('reset-password')
-  async reset(@Body() {token, password}: AuthResetPasswordDTO ) {
+  async reset(@Body() { token, password }: AuthResetPasswordDTO) {
     return this.authResetPasswordService.execute({ token, password });
   }
 }

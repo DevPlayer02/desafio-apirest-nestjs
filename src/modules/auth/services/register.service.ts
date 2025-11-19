@@ -21,6 +21,6 @@ export class AuthRegisterService {
 
     const user = await this.createUserService.execute(newUser);
 
-    return this.generateTokenService.execute(user)
+    return this.generateTokenService.execute(user);
   }
 }

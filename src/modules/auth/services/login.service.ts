@@ -14,7 +14,8 @@ export class AuthLoginService {
   async execute({ username, password }: LoginDTO) {
     const user = await this.findByUsernameService.execute(username);
 
-    if (!user || !(await bcrypt.compare(password, user.password))) throw new UnauthorizedException('Username or password is incorrect');
+    if (!user || !(await bcrypt.compare(password, user.password)))
+      throw new UnauthorizedException('Username or password is incorrect');
 
     const payload = { sub: user.id, name: user.name };
     const token = await this.jwtService.signAsync(payload);
